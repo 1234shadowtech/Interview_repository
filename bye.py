@@ -3,6 +3,6 @@ def d(a):
   return None
 def c(a):
   print("hi")
-  return None
+  
 for i in range(0,10):
   d(i)
