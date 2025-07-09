@@ -16,7 +16,7 @@ def filter_products(products, min_price=0, max_price=1000, category=None):
         # Check if product price is within the range and matches the category (if provided)
         if p['price'] >= min_price and p['price'] <= max_price:
             if category is None or p['category'] == category:
-                filtered.append(p)
+                filtered.append(p)  # Add product to the filtered list
     return filtered
 
 # Function to generate a report from data and optionally write to a file
@@ -33,8 +33,8 @@ def generate_report(data, output_file=None):
     # Write the report to a file if an output file is specified
     if output_file:
         with open(output_file, 'w') as f:
-            f.write("\n".join(report))
-    return "\n".join(report)
+            f.write("\n".join(report))  # Write report to file
+    return "\n".join(report)  # Return the report as a string
 
 # Function to calculate statistics for a list of numbers
 def calculate_stats(numbers):
