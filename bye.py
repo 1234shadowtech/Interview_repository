@@ -1,6 +1,6 @@
 ```python
 # Function to analyze text statistics
-def analyze_text(text):
+def analyze_text(text: str) -> dict:  # Added type hints
     stats = {}
     stats['length'] = len(text)  # Total length of the text
     stats['words'] = len(text.split())  # Number of words (split by whitespace)
@@ -10,23 +10,23 @@ def analyze_text(text):
     return stats
 
 # Function to filter products based on price range and category
-def filter_products(products, min_price=0, max_price=1000, category=None):
+def filter_products(products: list, min_price: int = 0, max_price: int = 1000, category: str = None) -> list:  # Added type hints
     filtered = []
     for p in products:
         # Check if product price is within range and matches the category (if provided)
         if p['price'] >= min_price and p['price'] <= max_price:
             if category is None or p['category'] == category:
                 filtered.append(p)
-    return filtered
+    return filtered  # Consider using a list comprehension for better readability
 
 # Function to generate a report from data
-def generate_report(data, output_file=None):
+def generate_report(data: list, output_file: str = None) -> str:  # Added type hints
     report = []
     report.append(f"Report generated on: {datetime.now()}")  # Add timestamp
     report.append(f"Total items: {len(data)}")  # Add total item count
     
     # Check if data contains dictionaries and list their keys as columns
-    if isinstance(data[0], dict):
+    if data and isinstance(data[0], dict):  # Added check for empty data
         keys = data[0].keys()
         report.append("\nColumns: " + ", ".join(keys))
     
@@ -37,7 +37,7 @@ def generate_report(data, output_file=None):
     return "\n".join(report)
 
 # Function to calculate statistics for a list of numbers
-def calculate_stats(numbers):
+def calculate_stats(numbers: list) -> dict:  # Added type hints
     if not numbers:  # Return None if the list is empty
         return None
     
@@ -53,7 +53,7 @@ def calculate_stats(numbers):
     return stats
 
 # Function to process user input and perform actions
-def process_user_input(input_str):
+def process_user_input(input_str: str):  # Added type hints
     try:
         if input_str.lower() == 'exit':  # Exit command
             return False
@@ -65,8 +65,10 @@ def process_user_input(input_str):
             return text * int(times)  # Repeat text 'times' times
         else:
             return input_str.upper()  # Convert input to uppercase
-    except:  # Bare except, should specify exceptions
+    except ValueError:  # Specify exception for invalid integer conversion
         return "Invalid input"
+    except Exception as e:  # Catch other exceptions and log the error
+        return f"Error: {e}"
 
 # Main block to test the functions
 if __name__ == "__main__":
