@@ -1,32 +1,46 @@
 ```python
-import math  # Move all imports to the top of the file
-import json
-import csv
-import io
+import math  # Importing math for mathematical operations
+import json  # Importing json for JSON formatting
+import csv  # Importing csv for CSV formatting
+import io  # Importing io for in-memory file handling
 
 # Function to calculate the area of different shapes
-def calculate_area(shape: str, *args) -> float:  # Added type hints
+def calculate_area(shape: str, *args) -> float:  # Type hints added for clarity
     """
     Calculate the area of a given shape.
     :param shape: The type of shape ("circle", "rectangle", "triangle").
     :param args: Dimensions of the shape (e.g., radius for circle, length/width for rectangle).
     :return: The calculated area as a float.
     """
+    # Validate input arguments (missing in current implementation)
+    if not args:
+        raise ValueError("Dimensions are required to calculate the area.")
+    
     # Check the shape type and calculate the area accordingly
     if shape == "circle":
         radius = args[0]  # Assumes the first argument is the radius
+        if radius < 0:  # Handle negative radius
+            raise ValueError("Radius cannot be negative.")
         return math.pi * radius * radius  # Use math.pi for better precision
     elif shape == "rectangle":
+        if len(args) < 2:  # Ensure two arguments are provided
+            raise ValueError("Rectangle requires length and width.")
         length, width = args  # Assumes two arguments: length and width
+        if length < 0 or width < 0:  # Handle negative dimensions
+            raise ValueError("Length and width cannot be negative.")
         return length * width
     elif shape == "triangle":
+        if len(args) < 2:  # Ensure two arguments are provided
+            raise ValueError("Triangle requires base and height.")
         base, height = args  # Assumes two arguments: base and height
+        if base < 0 or height < 0:  # Handle negative dimensions
+            raise ValueError("Base and height cannot be negative.")
         return 0.5 * base * height
     else:
         raise ValueError(f"Unsupported shape: {shape}")  # Raise an exception for unsupported shapes
 
 # Function to process a list of data
-def process_data(data: list) -> list:  # Added type hints
+def process_data(data: list) -> list:  # Type hints added for clarity
     """
     Process a list of data by transforming integers and strings.
     :param data: A list containing integers and strings.
@@ -46,7 +60,7 @@ def process_data(data: list) -> list:  # Added type hints
     return result
 
 # Function to validate a username and password
-def validate_user(username: str, password: str) -> bool:  # Added type hints
+def validate_user(username: str, password: str) -> bool:  # Type hints added for clarity
     """
     Validate a username and password based on specific criteria.
     :param username: The username to validate.
@@ -71,7 +85,7 @@ def validate_user(username: str, password: str) -> bool:  # Added type hints
     return True  # Return True if all conditions are met
 
 # Function to format data into different output types
-def format_output(data: list, format_type: str) -> str:  # Added type hints
+def format_output(data: list, format_type: str) -> str:  # Type hints added for clarity
     """
     Format data into different output types (JSON, CSV, or string).
     :param data: The data to format.
