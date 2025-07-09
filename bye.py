@@ -21,11 +21,14 @@ def filter_products(products, min_price=0, max_price=1000, category=None):
 # Function to generate a report from data
 def generate_report(data, output_file=None):
     report = []
-    report.append(f"Report generated on: {datetime.now()}")  # Add timestamp to the report
-    report.append(f"Total items: {len(data)}")  # Add total item count
+    # Add timestamp to the report
+    report.append(f"Report generated on: {datetime.now()}")  
+    
+    # Add total item count
+    report.append(f"Total items: {len(data)}")  
     
     # Check if the first item in data is a dictionary to extract column names
-    if isinstance(data[0], dict):
+    if isinstance(data[0], dict):  
         keys = data[0].keys()
         report.append("\nColumns: " + ", ".join(keys))  # Add column names to the report
     
