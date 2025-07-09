@@ -1,34 +1,8 @@
-### Suggestions for `hello.py`
+### Suggestions for `Hi.py`
 
-1. **[Severity: High | Tag: Code Clarity]**  
-   The `calculate_area` function uses `*args`, which makes it unclear what arguments are expected for each shape. Consider using explicit parameters or a dictionary to improve readability and enforce argument validation.
-
-2. **[Severity: Medium | Tag: Error Handling]**  
-   The `calculate_area` function returns `None` for unsupported shapes. Instead, raise a `ValueError` or a custom exception to make the error explicit.
-
-3. **[Severity: Medium | Tag: Type Handling]**  
-   The `process_data` function does not handle unsupported types. Add a warning or exception for unsupported data types to avoid silent failures.
-
-4. **[Severity: Low | Tag: Code Organization]**  
-   The `format_output` function imports modules (`json`, `csv`, `io`) inside the function. Move these imports to the top of the file for better organization and to avoid redundant imports.
-
-5. **[Severity: Medium | Tag: Security]**  
-   The `validate_user` function does not enforce strong password rules beyond length, digits, and uppercase letters. Consider adding checks for special characters and avoiding common passwords.
-
-6. **[Severity: Low | Tag: Code Optimization]**  
-   The `format_output` function could use `csv.DictWriter` for better handling of structured data instead of assuming a list of lists.
-
-7. **[Severity: Low | Tag: Code Readability]**  
-   The `main` function mixes demonstration and testing. Consider separating testing logic into a dedicated test suite or using a framework like `unittest` or `pytest`.
-
-8. **[Severity: Medium | Tag: Scalability]**  
-   The `format_output` function does not handle large datasets efficiently. For large CSV data, consider writing to a file instead of using `StringIO`.
-
-9. **[Severity: Low | Tag: Magic Numbers]**  
-   The `calculate_area` function uses `3.14159` as the value of π. Use `math.pi` from the `math` module for better accuracy and readability.
-
-10. **[Severity: Medium | Tag: Input Validation]**  
-    None of the functions validate their inputs thoroughly. Add input validation to ensure arguments are of the expected type and within valid ranges.
-
----
+1. **[Critical] Function Logic Issue**: The `ADD` function is defined to take parameters `x` and `y`, but it does not use them. Instead, it uses the global variables `a` and `b`. This is misleading and violates the principle of encapsulation. The function should use its parameters (`x` and `y`) for computation.
+2. **[Moderate] Naming Convention**: The function name `ADD` is in uppercase, which is unconventional in Python. Function names should follow snake_case (e.g., `add`).
+3. **[Low] Unused Parameters**: The parameters `x` and `y` are defined but not used, which is unnecessary and confusing.
+4. **[Low] Lack of Output Handling**: The result of the `ADD` function is computed but not stored or printed. This makes the code incomplete for practical use.
+5. **[Low] Lack of Comments**: The code lacks comments explaining its purpose or logic, which reduces readability and maintainability.
 
