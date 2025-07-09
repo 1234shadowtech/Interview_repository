@@ -22,6 +22,7 @@
 ```python
 # Importing necessary modules at the top of the file
 from datetime import datetime
+import ast
 
 def analyze_text(text: str) -> dict:
     """
@@ -76,7 +77,7 @@ def generate_report(data: list, output_file: str = None) -> str:
     Returns:
         str: The generated report as a string.
     """
-    if not data:
+    if not isinstance(data, list) or not data:
         return "No data available to generate a report."
 
     report = []
@@ -132,9 +133,8 @@ def process_user_input(input_str: str):
             return False
         elif input_str.startswith('calc '):
             expr = input_str[5:]
-            # Avoid using eval for security reasons
-            import ast
-            return eval(expr, {"__builtins__": None}, {})
+            # Use ast.literal_eval for safer evaluation
+            return ast.literal_eval(expr)
         elif input_str.startswith('repeat '):
             parts = input_str[7:].split(maxsplit=1)
             if len(parts) != 2:
