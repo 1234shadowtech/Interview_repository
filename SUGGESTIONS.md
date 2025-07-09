@@ -1,8 +1,22 @@
-### Suggestions for `Hi.py`
+### Suggestions for `e1.py`
 
-1. **[Critical] Function Logic Issue**: The `ADD` function is defined to take parameters `x` and `y`, but it does not use them. Instead, it uses the global variables `a` and `b`. This is misleading and violates the principle of encapsulation. The function should use its parameters (`x` and `y`) for computation.
-2. **[Moderate] Naming Convention**: The function name `ADD` is in uppercase, which is unconventional in Python. Function names should follow snake_case (e.g., `add`).
-3. **[Low] Unused Parameters**: The parameters `x` and `y` are defined but not used, which is unnecessary and confusing.
-4. **[Low] Lack of Output Handling**: The result of the `ADD` function is computed but not stored or printed. This makes the code incomplete for practical use.
-5. **[Low] Lack of Comments**: The code lacks comments explaining its purpose or logic, which reduces readability and maintainability.
+1. **[SEVERITY: High] [Issue: Incorrect Function Logic]**  
+   - The function `ADD` is defined to take two parameters `x` and `y`, but it does not use them. Instead, it uses the global variables `a` and `b`. This can lead to unexpected behavior if the function is called with different arguments. The function should use the parameters `x` and `y` instead of the global variables.
+
+2. **[SEVERITY: Medium] [Issue: Naming Convention]**  
+   - The function name `ADD` is in uppercase, which is not consistent with Python's PEP 8 naming conventions. Function names should be in lowercase with words separated by underscores (e.g., `add`).
+
+3. **[SEVERITY: Low] [Issue: Unused Parameters]**  
+   - The parameters `x` and `y` are unused in the function. This can confuse readers and should be addressed.
+
+4. **[SEVERITY: Low] [Issue: Lack of Output or Usage]**  
+   - The result of the `ADD` function is not stored or printed. This makes the code incomplete in terms of functionality.
+
+5. **[SEVERITY: Low] [Issue: Lack of Comments or Documentation]**  
+   - The code lacks comments or documentation to explain its purpose or functionality.
+
+6. **[SEVERITY: Low] [Issue: Variable Initialization]**  
+   - The variables `a` and `b` are defined at the top level but are not encapsulated in a function or class. This can lead to potential issues in larger programs.
+
+---
 
