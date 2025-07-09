@@ -1,6 +1,6 @@
 ```python
 # Function to analyze text statistics
-def analyze_text(text: str) -> dict:  # Added type hints
+def analyze_text(text: str) -> dict:  # Added type hints for clarity
     stats = {}
     stats['length'] = len(text)  # Total length of the text
     stats['words'] = len(text.split())  # Number of words (split by whitespace)
