@@ -2,7 +2,7 @@ def d(a):
   print(a*a)
   return None
 def c(a):
-  print("hi")
+  
   print("hello")
   return None
   
