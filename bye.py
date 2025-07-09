@@ -26,7 +26,7 @@ def generate_report(data, output_file=None):
     report.append(f"Total items: {len(data)}")  # Add total item count
     
     # Check if data contains dictionaries and list their keys as columns
-    if isinstance(data[0], dict):
+    if isinstance(data[0], dict):  # Assumes data is non-empty; needs validation
         keys = data[0].keys()
         report.append("\nColumns: " + ", ".join(keys))
     
