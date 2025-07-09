@@ -28,11 +28,11 @@ def generate_report(data, output_file=None):
     
     report = []
     # Add timestamp to the report
-    report.append(f"Report generated on: {datetime.now()}")
+    report.append(f"Report generated on: {datetime.now()}")  # Consider formatting the timestamp more clearly
     report.append(f"Total items: {len(data)}")  # Add total item count
     
     # Check if data contains dictionaries and add column names
-    if isinstance(data[0], dict):
+    if isinstance(data[0], dict):  # Assumes the first element is a dictionary; needs better validation
         keys = data[0].keys()
         report.append("\nColumns: " + ", ".join(keys))
     
@@ -66,10 +66,10 @@ def process_user_input(input_str):
             expr = input_str[5:]
             # Replace eval with safer alternatives like ast.literal_eval
             import ast
-            return ast.literal_eval(expr)  # Safer evaluation
+            return ast.literal_eval(expr)  # Safer evaluation, but still requires input validation
         elif input_str.startswith('repeat '):  # Repeat text multiple times
-            text, times = input_str[7:].split(maxsplit=1)
-            return text * int(times)
+            text, times = input_str[7:].split(maxsplit=1)  # Split input into text and repetition count
+            return text * int(times)  # Repeat the text
         else:
             return input_str.upper()  # Convert input to uppercase
     except ValueError:  # Handle specific exceptions
@@ -83,23 +83,23 @@ if __name__ == "__main__":
     
     # Test analyze_text function
     sample_text = "Hello World! 123"
-    print(analyze_text(sample_text))
+    print(analyze_text(sample_text))  # Expected output: {'length': 15, 'words': 3, 'uppercase': 2, 'lowercase': 8, 'digits': 3}
     
     # Test filter_products function
     products = [
         {'name': 'A', 'price': 100, 'category': 'X'},
         {'name': 'B', 'price': 200, 'category': 'Y'},
     ]
-    print(filter_products(products, 150, 250))
+    print(filter_products(products, 150, 250))  # Expected output: [{'name': 'B', 'price': 200, 'category': 'Y'}]
     
     # Test generate_report function
-    print(generate_report(products))
+    print(generate_report(products))  # Expected output: Report with timestamp, total items, and column names
     
     # Test calculate_stats function
     numbers = [1, 2, 3, 4, 5]
-    print(calculate_stats(numbers))
+    print(calculate_stats(numbers))  # Expected output: {'mean': 3, 'min': 1, 'max': 5, 'range': 4, 'median': 3}
     
     # Test process_user_input function
-    print(process_user_input("calc 5+3"))
-    print(process_user_input("repeat abc 3"))
+    print(process_user_input("calc 5+3"))  # Expected output: 8
+    print(process_user_input("repeat abc 3"))  # Expected output: abcabcabc
 ```
