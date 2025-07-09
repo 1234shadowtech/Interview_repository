@@ -1,28 +1,34 @@
 ### Suggestions for `bye.py`
 
-1. **[Severity: Medium | Tag: Code Readability]**  
-   Use constants for mathematical values like `3.14159` (π). Consider importing `math.pi` for better readability and precision.
+1. **[SEVERITY: HIGH]** Use `math.pi` instead of hardcoding `3.14159` for better precision in the `calculate_area` function.  
+   **[TAG: Precision]**
 
-2. **[Severity: High | Tag: Error Handling]**  
-   The `calculate_area` function does not validate the number of arguments passed for each shape. This can lead to runtime errors if incorrect arguments are provided.
+2. **[SEVERITY: MEDIUM]** Raise an exception (e.g., `ValueError`) for unsupported shapes in `calculate_area` instead of returning `None`. This makes error handling more explicit.  
+   **[TAG: Error Handling]**
 
-3. **[Severity: Medium | Tag: Code Maintainability]**  
-   The `process_data` function lacks handling for unsupported data types. Adding an `else` clause or raising an exception for unsupported types would improve robustness.
+3. **[SEVERITY: MEDIUM]** Add type hints to all functions for better readability and maintainability.  
+   **[TAG: Type Hinting]**
 
-4. **[Severity: Medium | Tag: Security]**  
-   The `validate_user` function does not hash or encrypt passwords. While this is not directly related to the code's functionality, it is worth noting for real-world applications.
+4. **[SEVERITY: LOW]** Handle unsupported data types in the `process_data` function by either raising an exception or logging a warning.  
+   **[TAG: Robustness]**
 
-5. **[Severity: Medium | Tag: Performance]**  
-   The `format_output` function imports modules (`json`, `csv`, `io`) inside the function. These imports should be moved to the top of the file for better performance and clarity.
+5. **[SEVERITY: LOW]** Move all imports to the top of the file to follow Python's best practices.  
+   **[TAG: Code Organization]**
 
-6. **[Severity: Low | Tag: Code Style]**  
-   The `main` function could be refactored to avoid hardcoding test cases. Use a structured testing approach or parameterized inputs for better scalability.
+6. **[SEVERITY: LOW]** Add docstrings to all functions to describe their purpose, parameters, and return values.  
+   **[TAG: Documentation]**
 
-7. **[Severity: Medium | Tag: Error Handling]**  
-   The `format_output` function does not handle cases where `data` is not in the expected format for CSV or JSON. This could lead to runtime errors.
+7. **[SEVERITY: LOW]** Use `with io.StringIO()` in the `format_output` function to ensure proper cleanup of resources.  
+   **[TAG: Resource Management]**
 
-8. **[Severity: Low | Tag: Code Style]**  
-   The `main` function does not check the return values of the functions for validity or errors. Adding checks or assertions would improve the code's reliability.
+8. **[SEVERITY: LOW]** Add unit tests for each function to ensure correctness and prevent regressions.  
+   **[TAG: Testing]**
+
+9. **[SEVERITY: LOW]** Consider using `argparse` for the `main` function to allow dynamic input instead of hardcoding test cases.  
+   **[TAG: Flexibility]**
+
+10. **[SEVERITY: LOW]** Use constants or configuration files for repeated values like minimum username/password lengths in `validate_user`.  
+    **[TAG: Maintainability]**
 
 ---
 
