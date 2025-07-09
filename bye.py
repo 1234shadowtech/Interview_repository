@@ -19,7 +19,7 @@ if __name__ == "__main__":  # Check if the script is being run directly
 
 ---
 
-### REVISED CODE (Optional):
+### REVISED CODE:
 Here’s a revised version of the code incorporating the suggestions:
 
 ```python
