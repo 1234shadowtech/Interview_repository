@@ -1,9 +1,9 @@
 ### Suggestions for `bye.py`
 
 1. **[Low | Readability]**: The code is simple and functional, but adding type hints to the function signatures would improve readability and make the code more self-documenting.
-2. **[Low | Scalability]**: The `main()` function is hardcoded with specific values. Consider parameterizing it or allowing user input for better flexibility.
-3. **[Low | Best Practices]**: Adding docstrings to the functions would improve code documentation and make it easier for others to understand their purpose.
-4. **[Low | Testing]**: There are no tests for the `greet` and `add` functions. Adding unit tests would ensure the correctness of the code over time.
+2. **[Low | Scalability]**: The `greet` function assumes the input `name` is always a string. Adding input validation or type checking could make the function more robust.
+3. **[Low | Maintainability]**: The `main` function directly prints the results. For larger applications, separating logic from I/O (e.g., returning values instead of printing) would improve testability and maintainability.
+4. **[Low | Documentation]**: While the code is straightforward, adding a module-level docstring to explain the purpose of the script would be helpful for future maintainers.
 
 ---
 
