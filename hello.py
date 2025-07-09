@@ -12,7 +12,7 @@ def calculate_area(shape, *args):
         base, height = args  # Assumes two arguments for base and height.
         return 0.5 * base * height  # Calculates the area of a triangle.
     else:
-        return None  # Returns None for unsupported shapes.
+        return None  # Returns None for unsupported shapes. (Consider raising an exception instead.)
 
 def process_data(data):
     # Processes a list of data, performing different operations based on the type of each item.
@@ -25,6 +25,7 @@ def process_data(data):
                 result.append(item * 3)
         elif isinstance(item, str):  # Checks if the item is a string.
             result.append(item.upper())  # Converts the string to uppercase.
+        # No handling for unsupported types. (Consider adding a warning or error.)
     return result  # Returns the processed list.
 
 def validate_user(username, password):
