@@ -16,7 +16,7 @@ def calculate_area(shape, *args):  # Function to calculate the area of different
         base, height = args  # Assumes two arguments: base and height
         return 0.5 * base * height  # Area of a triangle = 0.5 × base × height
     else:
-        return None  # Returns None for unsupported shapes
+        return None  # Returns None for unsupported shapes (Consider raising NotImplementedError)
 
 def process_data(data):  # Function to process a list of data
     result = []  # Initialize an empty list to store results
@@ -29,7 +29,7 @@ def process_data(data):  # Function to process a list of data
         elif isinstance(item, str):  # Check if the item is a string
             result.append(item.upper())  # Convert the string to uppercase
         else:  # Handle unsupported data types
-            raise TypeError(f"Unsupported data type: {type(item)}")
+            raise TypeError(f"Unsupported data type: {type(item)}")  # Consider handling unsupported types more gracefully
     return result  # Return the processed list
 
 def validate_user(username, password):  # Function to validate a username and password
@@ -46,6 +46,9 @@ def validate_user(username, password):  # Function to validate a username and pa
             has_upper = True
         elif not char.isalnum():  # Check for special characters
             has_special = True
+        # Break early if all conditions are met
+        if has_digit and has_upper and has_special:
+            break
     if not (has_digit and has_upper and has_special):  # Ensure all conditions are met
         return False
     return True  # Return True if all conditions are met
