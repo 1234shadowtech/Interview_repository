@@ -4,7 +4,7 @@ def calculate_area(shape, *args):
     # Uses *args, which makes it unclear what arguments are expected for each shape.
     if shape == "circle":
         radius = args[0]  # Assumes the first argument is the radius for a circle.
-        return 3.14159 * radius * radius  # Calculates the area of a circle.
+        return 3.14159 * radius * radius  # Calculates the area of a circle. (Consider using math.pi for accuracy.)
     elif shape == "rectangle":
         length, width = args  # Assumes two arguments for length and width.
         return length * width  # Calculates the area of a rectangle.
