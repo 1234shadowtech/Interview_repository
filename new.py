@@ -15,6 +15,9 @@ def divide(a, b):
 def war(a,b):
 # Define a function to subtract the second number from the first and return the result.
     return None
+
+def car(a,b):
+    return None
 def main():
 # Define a function to multiply two numbers and return the result.
     x = 10
